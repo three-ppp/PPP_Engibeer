@@ -4,8 +4,8 @@ services:
     build:
       context: .
       dockerfile: ./docker/node/Dockerfile
-    # volumes:
-    #   - ./:/usr/src/app
-    command: sh -c "yarn dev"
+    volumes:
+      - ./:/usr/src/app
     ports:
       - "3000:3000"
+    tty: true
