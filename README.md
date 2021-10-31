@@ -20,10 +20,16 @@ docker ps -a
 ```
  docker exec -it コンテナ名 bash
 ```
-next
+- 開発環境の構築
 ```
  npm istall or yarn add
 ```
+
+- next.jsをサーバーとして立ち上げる
+```
+yarn dev
+```
+
 
 
 
