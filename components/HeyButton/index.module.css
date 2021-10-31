@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+a.btnEmergency {
+  position: relative;
+  display: block;
+  width: 200px;
+  height: 130px;
+}
+
+a.btnEmergency:hover .btnEmergencyTop {
+  top: 10px;
+  height: 50px;
+}
+
+a.btnEmergency:active .btnEmergencyTop {
+  top: 20px;
+  height: 40px;
+}
+
+.btnEmergencyTop {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 160px;
+  height: 60px;
+  margin-top: 30px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 0 0 50% 50%;
+  /* 側面のカラー */
+  background: #0284c7;
+}
+
+.btnEmergencyTop:before {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 160px;
+  height: 60px;
+  content: "";
+  border-radius: 80px / 30px;
+  /* ボタンのトップの背景色 */
+  background: #40a9dd;
+}
+
+.btnEmergencyTop span {
+  font-size: 38px;
+  font-weight: bold;
+  position: absolute;
+  top: -24px;
+  left: 0;
+  width: 100%;
+  -webkit-transform: scaleY(0.75);
+  transform: scaleY(0.75);
+  text-align: center;
+  /* 文字のカラー */
+  color: #fff;
+}
+
+.btnEmergencyBottom {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  width: 200px;
+  height: 80px;
+  border-radius: 100px / 40px;
+  background: #d8e4ea;
+  -webkit-box-shadow: 0 8px 0 #c4cacc;
+  box-shadow: 0 8px 0 #c4cacc;
+}
+
+.heyCount {
+  margin-left: 60px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 40px;
+  color: #0284c7;
+}
