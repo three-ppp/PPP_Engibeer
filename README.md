@@ -18,14 +18,21 @@ docker ps -a
 
 - コンテナの中に入る
 ```
- docker exec -it コンテナ名 bash
+ docker exec -it コンテナ名 sh
 ```
 - 開発環境の構築
 ```
  npm istall or yarn add
 ```
 
-- next.jsをサーバーとして立ち上げる
+
+## next.jsをサーバーとして立ち上げる
+- コンテナの中に入る
+```
+docker exec -it コンテナ名 sh
+```
+
+- コンテナに入ってから
 ```
 yarn dev
 ```
