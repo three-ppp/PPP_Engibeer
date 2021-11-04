@@ -1,4 +1,4 @@
-name: Create issue
+name: Create issue for jria
 
 # githubのissueが開かれたときに作動(type->[colosed]で湿られたとき)
 on:
