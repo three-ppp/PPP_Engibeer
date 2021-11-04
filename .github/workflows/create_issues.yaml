@@ -1,0 +1,33 @@
+name: Create issue for jira
+
+# githubのissueが開かれたときに作動(type->[colosed]で湿られたとき)
+on:
+  issues:
+  push:
+    types: [opened]
+
+#ここからworkflow
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Jira Example
+    if: github.event.action == 'opened'
+    steps:
+    - name: Login
+      uses: atlassian/gajira-login@master
+      env:
+        JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+        JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+
+    - name: Jira Create issue
+      uses: atlassian/gajira-create@v2.0.1
+      with:
+        # 付けたいチケット名を選択(jiraのAPItokenのlabelに合わせる)
+        project: three-ppp
+        # 課題タイプを指定
+        issuetype: Task
+        # issuesのタイトルが要約になるように設定
+        summary: ${{ github.event.issue.title}}
+        # issuesの本文が説明になるように設定
+        description: ${{ github.event.issue.body}}
