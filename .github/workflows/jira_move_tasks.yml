@@ -4,7 +4,7 @@ on:
       - "*"
       - "!main"
 
-name: Transition Issue for progress
+name: Transition Issue for jira
 
 jobs:
   test-transition-issue:
