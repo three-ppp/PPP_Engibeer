@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState, VFC } from "react";
+import { Dispatch, SetStateAction, useCallback, useState, VFC } from "react";
 import styles from "./index.module.css";
 type Props = {
   incrementHey: Dispatch<SetStateAction<number>>;
@@ -8,43 +8,29 @@ type Props = {
 const HeyButton: VFC<Props> = (props) => {
   const { incrementHey, disabled = false } = props;
   const [count, setCount] = useState(0);
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     if (count < 20) {
       setCount((prev) => prev + 1);
       incrementHey((prev) => prev + 1);
     }
-  };
-  if (disabled) {
-    // 非活性の場合
-    return (
-      <div className={styles.container}>
-        <a className={styles.btnEmergency} style={{ cursor: "not-allowed" }}>
-          <span className={styles.btnEmergencyBottom}></span>
-          <span className={styles.btnEmergencyTop}>
-            <span>へぇ</span>
-          </span>
-        </a>
-        <div className={styles.heyCount}>
-          {count}
-          <small>へぇ</small>
-        </div>
+  }, [count]);
+  return (
+    <div className={styles.container}>
+      <button
+        className={styles.btnEmergency}
+        onClick={disabled ? undefined : handleClick}
+        style={disabled ? { cursor: "not-allowed" } : undefined}
+      >
+        <span className={styles.btnEmergencyBottom}></span>
+        <span className={styles.btnEmergencyTop}>
+          <span>へぇ</span>
+        </span>
+      </button>
+      <div className={styles.heyCount}>
+        {count}
+        <small>へぇ</small>
       </div>
-    );
-  } else {
-    return (
-      <div className={styles.container}>
-        <a className={styles.btnEmergency} onClick={handleClick}>
-          <span className={styles.btnEmergencyBottom}></span>
-          <span className={styles.btnEmergencyTop}>
-            <span>へぇ</span>
-          </span>
-        </a>
-        <div className={styles.heyCount}>
-          {count}
-          <small>へぇ</small>
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 };
 export default HeyButton;

@@ -4,19 +4,19 @@
   user-select: none;
 }
 
-a.btnEmergency {
+button.btnEmergency {
   position: relative;
   display: block;
   width: 200px;
   height: 130px;
 }
 
-a.btnEmergency:hover .btnEmergencyTop {
+button.btnEmergency:hover .btnEmergencyTop {
   top: 10px;
   height: 50px;
 }
 
-a.btnEmergency:active .btnEmergencyTop {
+button.btnEmergency:active .btnEmergencyTop {
   top: 20px;
   height: 40px;
 }
