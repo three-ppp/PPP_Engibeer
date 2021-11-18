@@ -1,0 +1,19 @@
+.displayBoardAdj {
+    width: 704px;
+    height: 204px;
+    padding: 32px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.displayBoardText {
+    width: 640px;
+    height: 80px;
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 500;
+}
+
+.displayBoardAvatarAdj {
+    padding-right: 80%;
+}
