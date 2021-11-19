@@ -2,6 +2,7 @@ import { Avatar } from "Avatar";
 import styles from "./displayboardhey.module.css";
 
 export const DisplayBoardHey = (props) => {
+    
 const { text } = props;
 
     return(
