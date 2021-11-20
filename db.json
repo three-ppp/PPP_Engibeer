@@ -1,0 +1,22 @@
+{
+  "broadcasts": [
+    {
+      "title": "第一回エンジビアの泉",
+      "status": "after",
+      "engibeerCount": 10,
+      "date": "2021年7月12日"
+    },
+    {
+      "title": "第二回エンジビアの泉",
+      "status": "during",
+      "engibeerCount": 20,
+      "date": "2021年7月12日"
+    },
+    {
+      "title": "第三回エンジビアの泉",
+      "status": "before",
+      "engibeerCount": 10,
+      "date": "2021年7月12日"
+    }
+  ]
+}
