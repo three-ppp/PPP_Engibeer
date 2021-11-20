@@ -8,8 +8,8 @@ const ArchiveIframe: VFC<Props> = (props) => {
   const { archiveURL } = props;
   return (
     <iframe
-      width="560"
-      height="315"
+      width="704"
+      height="395.92"
       src={archiveURL}
       title="YouTube video player"
       frameBorder="0"
