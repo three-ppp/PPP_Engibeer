@@ -4,6 +4,7 @@ import { BroadcastItem } from './BroadcastItem';
 import { EngibeerAddPage } from '/pages/before/[broadcastId]/engibeer/add';//URLが怪しい
 import { DisplayHey } from './DisplayHey';//へえ数を表示するコンポーネント（仮）
 
+
 export const DisplayBoardHey = (props) => {
 const { text, displayname, iconURL, engibeerCount, engibeer } = props; //engibeerはEngibeerAddPageで取得された内容
 const userEditingEngibeerURL = '/live/放送ID';//desktop16
