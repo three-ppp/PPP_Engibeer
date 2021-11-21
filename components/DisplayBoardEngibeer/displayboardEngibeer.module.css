@@ -6,16 +6,33 @@
     border-radius: 8px;
 }
 
+.displayBoardForLiveAdj{
+    width: 704px;
+    height: 304px;
+    padding: 32px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
 .displayBoardText {
     width: 640px;
     height: 80px;
     font-size: 36px;
     line-height: 40px;
     font-weight: 500;
+    text-align: left;
 }
 
-.displayBoardAvatarAdj {
-    padding-right: 80%;
+.displayHey {
+    border-radius: 8px;
+    background-color: #FEF3C7;
+    padding: 20px 36px;
+    color: #0284C7;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 40px;
 }
 
 .displayBoardNum {
@@ -29,5 +46,7 @@
     order: 0;
     align-self: stretch;
     flex-grow: 0;
-    margin: 24px 0px;
+    margin: 0 0 24px;
+    display: flex;
+    justify-content: center;
 }
