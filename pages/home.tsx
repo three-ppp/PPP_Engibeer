@@ -1,20 +1,21 @@
-import { useEffect, useState, VFC } from "react";
+import { useCallback, useEffect, useState, VFC } from "react";
 import BroadcastItem from "../components/BroadcastItem";
 
 type Broadcast = {
+  id: string;
   title: string;
   status: "before" | "during" | "after";
   engibeerCount: number;
   date: string;
 };
-const Live: VFC = () => {
+const HomePage: VFC = () => {
   const [broadcastList, setBroadcastList] = useState<Array<Broadcast>>([]);
 
-  const fetchBroadcast = async () => {
+  const fetchBroadcast = useCallback(async () => {
     const res = await fetch("http://localhost:3001/broadcasts");
     const json = await res.json();
     setBroadcastList(json);
-  };
+  }, []);
 
   useEffect(() => {
     fetchBroadcast();
@@ -28,6 +29,7 @@ const Live: VFC = () => {
           return (
             <div key={index} className="first:border">
               <BroadcastItem
+                broadcastId={item.id}
                 title={item.title}
                 date={item.date}
                 status={item.status}
@@ -41,4 +43,4 @@ const Live: VFC = () => {
   );
 };
 
-export default Live;
+export default HomePage;

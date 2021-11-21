@@ -9,7 +9,7 @@ type Props = {
 const Avatar: VFC<Props> = (props) => {
   const { displayname, iconURL } = props;
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center text-sm">
       <div className="mr-3">
         <Image
           src={iconURL}
@@ -19,7 +19,7 @@ const Avatar: VFC<Props> = (props) => {
           className="rounded-full"
         />
       </div>
-      <h3 className="">{displayname}</h3>
+      <h3>{displayname}</h3>
     </div>
   );
 };
