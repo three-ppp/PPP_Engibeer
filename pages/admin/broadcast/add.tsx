@@ -13,7 +13,7 @@ const BroadcastAddPage: VFC = () => {
   }, []);
 
   const onChangeDate = (e: ChangeEvent<HTMLInputElement>) => {
-    setBroadcastDate(e.target.value);
+    setBroadcastTitle(e.target.value);
   };
 
   const addBroadcast = useCallback(() => {
