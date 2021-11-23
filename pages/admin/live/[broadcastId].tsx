@@ -94,6 +94,9 @@ const AdminLivePage = () => {
         return prevList.filter((item) => item.id !== active.id);
       });
     } else if (over && over.id === "during") {
+      if (duringList.length) {
+        return;
+      }
       setDuringList((prevList) => {
         if (beforeList.filter((item) => item.id === active.id).length) {
           // beforeからduringへ移動したとき
