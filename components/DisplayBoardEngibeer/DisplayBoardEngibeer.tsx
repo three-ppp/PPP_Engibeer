@@ -15,7 +15,7 @@ const { title, displayname, iconURL, totalHeyCount, engibeerNumber } = props;
 
     return(
         <>
-        {title && engibeerNumber ? (
+        {totalHeyCount && engibeerNumber ? (
             //desktop13の時は以下を返す
             <ul className={styles.displayBoardForLiveAdj}>
                 <li className={styles.displayBoardNum}>エンジビア{engibeerNumber}</li>
