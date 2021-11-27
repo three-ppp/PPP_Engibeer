@@ -15,6 +15,7 @@ module.exports = {
     textColor: (theme) => ({
       ...theme("colors"),
       orange_800: " #C2410C",
+      light_blue_600: "#0284C7",
     }),
   },
   variants: {

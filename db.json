@@ -1,0 +1,84 @@
+{
+  "broadcasts": [
+    {
+      "id": 1,
+      "title": "第一回エンジビアの泉",
+      "status": "after",
+      "engibeerCount": 10,
+      "date": "2021年7月12日"
+    },
+    {
+      "id": 2,
+      "title": "第二回エンジビアの泉",
+      "status": "during",
+      "engibeerCount": 20,
+      "date": "2021年7月12日"
+    },
+    {
+      "id": 3,
+      "title": "第三回エンジビアの泉",
+      "status": "before",
+      "engibeerCount": 10,
+      "date": "2021年7月12日"
+    }
+  ],
+  "HeyUser": [
+    {
+      "displayName": "ファンキー後藤",
+      "iconURL": "https://source.unsplash.com/random",
+      "heyCount": 18
+    },
+    {
+      "displayName": "マイケル竹田",
+      "iconURL": "https://source.unsplash.com/random",
+      "heyCount": 13
+    },
+    {
+      "displayName": "鈴木サンダー",
+      "iconURL": "https://source.unsplash.com/random",
+      "heyCount": 15
+    },
+    {
+      "displayName": "山田花子",
+      "iconURL": "https://source.unsplash.com/random",
+      "heyCount": 9
+    }
+  ],
+  "engibeers": [
+    {
+      "id": "dkkejdndjd387f7",
+      "title": "HTMLにはポータルという便利な要素がある-0",
+      "userName": "松平　ケン",
+      "iconURL": "https://source.unsplash.com/random",
+      "status": "during"
+    },
+    {
+      "id": "jjruf7ekjj",
+      "title": "HTMLにはポータルという便利な要素がある-1",
+      "userName": "松平　ケン",
+      "iconURL": "https://source.unsplash.com/random",
+      "status": "during"
+    },
+    {
+      "id": "djeii29f78f8f8",
+      "title": "HTMLにはポータルという便利な要素がある-2",
+      "userName": "松平　ケン",
+      "iconURL": "https://source.unsplash.com/random",
+      "status": "during"
+    },
+    {
+      "id": "eejllror9847fufu",
+      "title": "HTMLにはポータルという便利な要素がある-3",
+      "userName": "松平　ケン",
+      "iconURL": "https://source.unsplash.com/random",
+      "status": "during"
+    },
+    {
+      "id": "djdmllfjjvmde",
+      "title": "HTMLにはポータルという便利な要素がある-4",
+      "userName": "松平　ケン",
+      "iconURL": "https://source.unsplash.com/random",
+      "status": "during"
+    }
+  ]
+}

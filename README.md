@@ -37,6 +37,14 @@ docker exec -it コンテナ名 sh
 yarn dev
 ```
 
+## json-serverを立ち上げる
+- PPP_engibeerのディレクトリで
+```
+npm run server
+```
+これを打つとlocalhost:3001にjson-serverが立ち上がります。
+
+モックAPIを追加したい場合はdb.jsonに追加で記述してください
 
 
 
