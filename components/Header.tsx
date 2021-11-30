@@ -1,10 +1,39 @@
 import { VFC } from "react";
+import Image from "next/image";
 
-export const Header: VFC = () => {
+type Props = {
+  iconURL: string;
+};
+
+const Header: VFC<Props> = (props) => {
+  const { iconURL } = props;
   return (
-    <div className="flex flex-row items-center pl-5 py-2 bg-gray-300">
-      <img src="Icon Logo.png" />
-      <img src="エンジビアの泉.png" />
+    <div className="flex items-center bg-white w-screen h-16 justify-between">
+      <div className="ml-8 flex">
+        <div className="mr-2">
+          <Image src="/logo.png" alt="Logo" width="30px" height="30px" />
+        </div>
+        <div>
+          <Image
+            src="/engibeer.png"
+            alt="engibeer"
+            width="126px"
+            height="32px"
+          />
+        </div>
+      </div>
+
+      <div className="mr-8">
+        <Image
+          src={iconURL}
+          alt="avatar"
+          width="32px"
+          height="32px"
+          className="rounded-full"
+        />
+      </div>
     </div>
   );
 };
+
+export default Header;
