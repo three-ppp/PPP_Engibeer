@@ -33,9 +33,9 @@ const AdminHomePage: VFC = () => {
       <div className="mb-8 w-full">
         <h1 className="py-8 text-3xl">放送一覧</h1>
         <div className="border">
-          {broadcastList.map((item, index) => {
+          {broadcastList.map((item) => {
             return (
-              <div key={index} className="first:border">
+              <div key={item.id} className="first:border">
                 <AdminBroadcastItem
                   broadcastId={item.id}
                   title={item.title}

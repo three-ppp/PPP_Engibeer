@@ -64,7 +64,7 @@ const LivePage: VFC = () => {
       <div className="absolute top-16 right-6">
         {heyUserList.map((item: HeyUser, index: number) => {
           return (
-            <div key={index}>
+            <div key={item.iconURL}>
               <HeyUserItem
                 displayname={item.displayName}
                 iconURL={item.iconURL}
