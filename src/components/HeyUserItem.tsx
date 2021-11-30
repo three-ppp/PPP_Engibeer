@@ -1,5 +1,5 @@
 import { VFC } from "react";
-import Avatar from "../components/Avatar";
+import Avatar from "./Avatar";
 
 type Props = {
   displayname: string;

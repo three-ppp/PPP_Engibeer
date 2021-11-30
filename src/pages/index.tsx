@@ -1,7 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useCallback } from "react";
+import Button from "../components/Button";
 
 const Home: NextPage = () => {
+  const signIn = useCallback(() => {
+
+  }, []);
+  console.log(process.env.NEXT_PUBLIC_ID);
+  
   return (
     <>
       <Head>
@@ -11,6 +18,7 @@ const Home: NextPage = () => {
       </Head>
 
       <h1> Index page</h1>
+      <Button onClick={signIn} text="サインイン" />
     </>
   );
 };

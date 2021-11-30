@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import LiveEngibeerList from "../../../components/admin/LiveEngibeerList";
 import BroadcastTitle from "../../../components/BroadcastTitle";
 import Button from "../../../components/Button";
+import Header from "../../../components/Header";
 
 type Engibeer = {
   id: string;
@@ -157,6 +158,7 @@ const AdminLivePage = () => {
 
   return (
     <div className="flex items-center justify-center flex-col">
+      <Header iconURL="https://source.unsplash.com/random" />
       <div className="relative flex justify-center items-center w-full">
         {broadcastInfo !== undefined ? (
           <div className="pt-10 mb-16">

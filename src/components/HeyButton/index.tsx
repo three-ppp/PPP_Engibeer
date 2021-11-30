@@ -18,7 +18,8 @@ const HeyButton: VFC<Props> = (props) => {
     <div className={styles.container}>
       <button
         className={styles.btnEmergency}
-        onClick={disabled ? undefined : handleClick}
+        onClick={handleClick}
+        disabled={disabled}
         style={disabled ? { cursor: "not-allowed" } : undefined}
       >
         <span className={styles.btnEmergencyBottom}></span>

@@ -82,7 +82,7 @@ const LivePage: VFC = () => {
       </div>
 
       <div className="absolute left-2/4 transform -translate-x-1/2 top-2/3">
-        <HeyButton incrementHey={setHeyCount} />
+        <HeyButton incrementHey={setHeyCount} disabled={true} />
       </div>
     </>
   );
