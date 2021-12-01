@@ -1,16 +1,9 @@
 import { useRouter } from "next/dist/client/router";
 import { useCallback, useEffect, useState, VFC } from "react";
-import BroadcastTitle from "../../components/BroadcastTitle";
-import HeyButton from "../../components/HeyButton";
-import HeyUserItem from "../../components/HeyUserItem";
-
-type LiveInfo = {
-  id: string;
-  title: string;
-  status: "before" | "during" | "after";
-  engibeerCount: string;
-  date: string;
-};
+import { BroadcastTitle } from "components/BroadcastTitle";
+import HeyButton from "components/HeyButton";
+import { HeyUserItem } from "components/HeyUserItem";
+import type { BroadcastInfo } from "types/types";
 
 type HeyUser = {
   displayName: string;
@@ -19,8 +12,8 @@ type HeyUser = {
 };
 
 const LivePage: VFC = () => {
-  const [broadcastInfo, setBroadcastInfo] = useState<LiveInfo>();
-  const [heyUserList, setHeyUserList] = useState<Array<HeyUser>>([]);
+  const [broadcastInfo, setBroadcastInfo] = useState<BroadcastInfo>();
+  const [heyUserList, setHeyUserList] = useState<HeyUser[]>([]);
   const [heyCount, setHeyCount] = useState(0);
 
   const router = useRouter();

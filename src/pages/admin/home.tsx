@@ -1,17 +1,12 @@
+import { AdminBroadcastItem } from "components/admin/AdminBroadcastItem";
+import { Button } from "components/Button";
 import { useRouter } from "next/dist/client/router";
 import { useCallback, useEffect, useState, VFC } from "react";
-import AdminBroadcastItem from "../../components/admin/AdminBroadcastItem";
-import Button from "../../components/Button";
+import type { BroadcastInfo } from "types/types";
 
-type Broadcast = {
-  id: string;
-  title: string;
-  status: "before" | "during" | "after";
-  engibeerCount: number;
-  date: string;
-};
+
 const AdminHomePage: VFC = () => {
-  const [broadcastList, setBroadcastList] = useState<Array<Broadcast>>([]);
+  const [broadcastList, setBroadcastList] = useState<BroadcastInfo[]>([]);
   const router = useRouter();
 
   const fetchBroadcast = useCallback(async () => {

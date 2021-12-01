@@ -1,15 +1,8 @@
 import { useRouter } from "next/dist/client/router";
 import { useCallback, useEffect, useState, VFC } from "react";
-import ArchiveIframe from "../../components/ArchiveIframe";
-import BroadcastTitle from "../../components/BroadcastTitle";
-
-type BroadcastInfo = {
-  id: string;
-  title: string;
-  status: "before" | "during" | "after";
-  engibeerCount: string;
-  date: string;
-};
+import { ArchiveIframe } from "components/ArchiveIframe";
+import { BroadcastTitle } from "components/BroadcastTitle";
+import type { BroadcastInfo } from "types/types";
 
 const ArchivePage: VFC = () => {
   const [broadcastInfo, setBroadcastInfo] = useState<BroadcastInfo>();
@@ -23,7 +16,8 @@ const ArchivePage: VFC = () => {
       );
       const json = await res.json();
       setBroadcastInfo(json);
-    },[]
+    },
+    []
   );
 
   useEffect(() => {

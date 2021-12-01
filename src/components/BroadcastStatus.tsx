@@ -1,9 +1,10 @@
 import { VFC } from "react";
+import type { Status } from "types/types";
 type Props = {
-  status: "before" | "during" | "after";
+  status: Status;
 };
 
-const BroadcastStatus: VFC<Props> = (props) => {
+export const BroadcastStatus: VFC<Props> = (props) => {
   const { status } = props;
   if (status === "before") {
     return (
@@ -25,4 +26,4 @@ const BroadcastStatus: VFC<Props> = (props) => {
     );
   }
 };
-export default BroadcastStatus;
+

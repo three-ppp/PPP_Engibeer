@@ -1,5 +1,5 @@
+import { Avatar } from "components/Avatar";
 import { VFC } from "react";
-import Avatar from "../Avatar";
 
 type Props = {
   title: string;
@@ -7,7 +7,7 @@ type Props = {
   iconURL: string;
 };
 
-const LiveEngibeerItem: VFC<Props> = (props) => {
+export const LiveEngibeerItem: VFC<Props> = (props) => {
   const { title, displayname, iconURL } = props;
   return (
     <div className="w-80 p-3  bg-white text-sm flex flex-col items-baseline rounded-lg">
@@ -16,5 +16,3 @@ const LiveEngibeerItem: VFC<Props> = (props) => {
     </div>
   );
 };
-
-export default LiveEngibeerItem;

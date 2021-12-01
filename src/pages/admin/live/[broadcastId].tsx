@@ -1,35 +1,18 @@
 import { DndContext, DragEndEvent } from "@dnd-kit/core";
+import { LiveEngibeerList } from "components/admin/LiveEngibeerList";
+import { BroadcastTitle } from "components/BroadcastTitle";
+import { Button } from "components/Button";
+import { Header } from "components/Header";
 import { useRouter } from "next/dist/client/router";
 import { useCallback, useEffect, useState } from "react";
-import LiveEngibeerList from "../../../components/admin/LiveEngibeerList";
-import BroadcastTitle from "../../../components/BroadcastTitle";
-import Button from "../../../components/Button";
-import Header from "../../../components/Header";
-
-type Engibeer = {
-  id: string;
-  title: string;
-  userName: string;
-  iconURL: string;
-  status: string;
-};
-
-type LiveInfo = {
-  id: string;
-  title: string;
-  status: "before" | "during" | "after";
-  engibeerCount: string;
-  date: string;
-};
-
-type Status = "before" | "during" | "after";
+import type { BroadcastInfo, Engibeer, Status } from "types/types";
 
 const AdminLivePage = () => {
-  const containers: Array<Status> = ["before", "during", "after"];
-  const [beforeList, setBeforeList] = useState<Array<Engibeer>>([]);
-  const [duringList, setDuringList] = useState<Array<Engibeer>>([]);
-  const [afterList, setAfterList] = useState<Array<Engibeer>>([]);
-  const [broadcastInfo, setBroadcastInfo] = useState<LiveInfo>();
+  const containers: Status[] = ["before", "during", "after"];
+  const [beforeList, setBeforeList] = useState<Engibeer[]>([]);
+  const [duringList, setDuringList] = useState<Engibeer[]>([]);
+  const [afterList, setAfterList] = useState<Engibeer[]>([]);
+  const [broadcastInfo, setBroadcastInfo] = useState<BroadcastInfo>();
   const [isLive, setIsLive] = useState(false);
 
   const router = useRouter();

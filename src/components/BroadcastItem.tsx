@@ -1,20 +1,21 @@
+import {BroadcastStatus} from "components/BroadcastStatus";
 import { useRouter } from "next/dist/client/router";
 import { useCallback, VFC } from "react";
-import BroadcastStatus from "./BroadcastStatus";
+import type { Status } from "types/types";
 
 type Props = {
   broadcastId: string;
   title: string;
-  status: "before" | "during" | "after";
+  status: Status;
   engibeerCount: number;
   date: string;
 };
 
-const BroadcastItem: VFC<Props> = (props) => {
+export const BroadcastItem: VFC<Props> = (props) => {
   const { broadcastId, title, status, engibeerCount, date } = props;
   const router = useRouter();
   const routerPush = useCallback(
-    (broadcastId: string, status: "before" | "during" | "after"): void => {
+    (broadcastId: string, status: Status): void => {
       if (status === "before") {
         // 放送前の場合 エンジビア投稿画面に遷移
         router.push(`before/${broadcastId}/engibeer/add`);
@@ -46,5 +47,3 @@ const BroadcastItem: VFC<Props> = (props) => {
     </div>
   );
 };
-
-export default BroadcastItem;

@@ -1,15 +1,16 @@
+import { BroadcastStatus } from "components/BroadcastStatus";
 import { VFC } from "react";
-import BroadcastStatus from "./BroadcastStatus";
+import type { Status } from "types/types";
 
 type Props = {
   title: string;
-  status: "before" | "during" | "after";
+  status: Status;
 };
 
-const BroadcastTitle: VFC<Props> = (props) => {
+export const BroadcastTitle: VFC<Props> = (props) => {
   const { title, status } = props;
   return (
-    <div className='flex flex-col'>
+    <div className="flex flex-col">
       <div className="mx-auto mb-4">
         <BroadcastStatus status={status} />
       </div>
@@ -17,5 +18,3 @@ const BroadcastTitle: VFC<Props> = (props) => {
     </div>
   );
 };
-
-export default BroadcastTitle;

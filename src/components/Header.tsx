@@ -5,7 +5,7 @@ type Props = {
   iconURL: string;
 };
 
-const Header: VFC<Props> = (props) => {
+export const Header: VFC<Props> = (props) => {
   const { iconURL } = props;
   return (
     <div className="flex items-center bg-white w-screen h-16 justify-between">
@@ -35,5 +35,3 @@ const Header: VFC<Props> = (props) => {
     </div>
   );
 };
-
-export default Header;

@@ -1,5 +1,5 @@
+import { Avatar } from "components/Avatar";
 import { VFC } from "react";
-import Avatar from "./Avatar";
 
 type Props = {
   displayname: string;
@@ -7,7 +7,7 @@ type Props = {
   heyCount: string;
 };
 
-const HeyUserItem: VFC<Props> = (props) => {
+export const HeyUserItem: VFC<Props> = (props) => {
   const { displayname, iconURL, heyCount } = props;
   return (
     <div className="flex items-center justify-between h-16 w-64  border-b">
@@ -18,5 +18,3 @@ const HeyUserItem: VFC<Props> = (props) => {
     </div>
   );
 };
-
-export default HeyUserItem;

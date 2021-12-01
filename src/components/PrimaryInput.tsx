@@ -6,7 +6,7 @@ type Props = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
-const PrimaryInput: VFC<Props> = (props) => {
+export const PrimaryInput: VFC<Props> = (props) => {
   const { value, placeholder, onChange } = props;
   return (
     <input
@@ -19,4 +19,3 @@ const PrimaryInput: VFC<Props> = (props) => {
   );
 };
 
-export default PrimaryInput;

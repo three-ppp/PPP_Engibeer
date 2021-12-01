@@ -1,20 +1,21 @@
+import { BroadcastStatus } from "components/BroadcastStatus";
 import { useRouter } from "next/dist/client/router";
 import { useCallback, VFC } from "react";
-import BroadcastStatus from "../BroadcastStatus";
+import { Status } from "types/types";
 
 type Props = {
   broadcastId: string;
   title: string;
-  status: "before" | "during" | "after";
+  status: Status;
   engibeerCount: number;
   date: string;
 };
 
-const AdminBroadcastItem: VFC<Props> = (props) => {
+export const AdminBroadcastItem: VFC<Props> = (props) => {
   const { broadcastId, title, status, engibeerCount, date } = props;
   const router = useRouter();
   const routerPush = useCallback(
-    (broadcastId: string, status: "before" | "during" | "after"): void => {
+    (broadcastId: string, status: Status): void => {
       if (status === "before" || status === "during") {
         // 放送前の場合 投稿エンジビアの確認＆放送設定ページ画面に遷移
         router.push(`/admin/live/${broadcastId}`);
@@ -43,5 +44,3 @@ const AdminBroadcastItem: VFC<Props> = (props) => {
     </div>
   );
 };
-
-export default AdminBroadcastItem;

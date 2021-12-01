@@ -1,15 +1,8 @@
 import { useRouter } from "next/dist/client/router";
 import { useCallback, useEffect, useState, VFC } from "react";
-import BroadcastTitle from "../../../../components/BroadcastTitle";
-import { Button } from "../../../../components/Button";
-
-type BroadcastInfo = {
-  id: string;
-  title: string;
-  status: "before" | "during" | "after";
-  engibeerCount: string;
-  date: string;
-};
+import { BroadcastTitle } from "components/BroadcastTitle";
+import { Button } from "components/Button";
+import type { BroadcastInfo } from "types/types";
 
 const EngiberrAddPage: VFC = () => {
   const [broadcastInfo, setBroadcastInfo] = useState<BroadcastInfo>();

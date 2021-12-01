@@ -1,17 +1,10 @@
+import { ArchiveIframe } from "components/ArchiveIframe";
+import { BroadcastTitle } from "components/BroadcastTitle";
+import { Button } from "components/Button";
+import { PrimaryInput } from "components/PrimaryInput";
 import { useRouter } from "next/dist/client/router";
 import { ChangeEvent, useCallback, useEffect, useState, VFC } from "react";
-import ArchiveIframe from "../../../components/ArchiveIframe";
-import BroadcastTitle from "../../../components/BroadcastTitle";
-import Button from "../../../components/Button";
-import PrimaryInput from "../../../components/PrimaryInput";
-
-type BroadcastInfo = {
-  id: string;
-  title: string;
-  status: "before" | "during" | "after";
-  engibeerCount: string;
-  date: string;
-};
+import type { BroadcastInfo } from "types/types";
 
 const adminArchivePage: VFC = () => {
   const [broadcastInfo, setBroadcastInfo] = useState<BroadcastInfo>();

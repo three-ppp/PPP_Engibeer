@@ -6,7 +6,7 @@ type Props = {
   buttonType?: "second";
 };
 
-const Button: VFC<Props> = (props) => {
+export const Button: VFC<Props> = (props) => {
   const { buttonType, text, onClick } = props;
   const primaryStyle =
     "rounded bg-blue-600 text-white hover:bg-blue-500 py-3 px-5";
@@ -20,5 +20,3 @@ const Button: VFC<Props> = (props) => {
     </button>
   );
 };
-
-export default Button;

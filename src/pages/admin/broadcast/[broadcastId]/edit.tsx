@@ -1,7 +1,7 @@
+import { Button } from "components/Button";
+import { PrimaryInput } from "components/PrimaryInput";
 import { useRouter } from "next/dist/client/router";
 import { ChangeEvent, useCallback, useEffect, useState, VFC } from "react";
-import Button from "../../../../components/Button";
-import PrimaryInput from "../../../../components/PrimaryInput";
 
 const BroadcastEditPage: VFC = () => {
   const [broadcastTitle, setBroadcastTitle] = useState("");

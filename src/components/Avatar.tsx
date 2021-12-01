@@ -6,7 +6,7 @@ type Props = {
   iconURL: string;
 };
 
-const Avatar: VFC<Props> = (props) => {
+export const Avatar: VFC<Props> = (props) => {
   const { displayname, iconURL } = props;
   return (
     <div className="flex justify-center items-center text-sm">
@@ -23,5 +23,3 @@ const Avatar: VFC<Props> = (props) => {
     </div>
   );
 };
-
-export default Avatar;

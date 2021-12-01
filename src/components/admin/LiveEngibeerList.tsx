@@ -1,23 +1,17 @@
+import { Draggable } from "components/admin/Draggable";
+import { Droppable } from "components/admin/Droppable";
+import { LiveEngibeerItem } from "components/admin/LiveEngibeerItem";
+import { LiveEngibeerStatus } from "components/admin/LiveEngibeerStatus";
 import { VFC } from "react";
-import Draggable from "./Draggable";
-import Droppable from "./Droppable";
-import LiveEngibeerItem from "./LiveEngibeerItem";
-import LiveEngibeerStatus from "./LiveEngibeerStatus";
+import type { Engibeer, Status } from "types/types";
 
-type Engibeer = {
-  id: string;
-  title: string;
-  userName: string;
-  iconURL: string;
-  status: string;
-};
 type Props = {
   id: string;
-  status: "before" | "during" | "after";
-  LiveEngiberrList: Array<Engibeer>;
+  status: Status;
+  LiveEngiberrList: Engibeer[];
 };
 
-const LiveEngibeerList: VFC<Props> = (props) => {
+export const LiveEngibeerList: VFC<Props> = (props) => {
   const { id, status, LiveEngiberrList } = props;
   return (
     <Droppable id={id} key={id}>
@@ -42,5 +36,3 @@ const LiveEngibeerList: VFC<Props> = (props) => {
     </Droppable>
   );
 };
-
-export default LiveEngibeerList;

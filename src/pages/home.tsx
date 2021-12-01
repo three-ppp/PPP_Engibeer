@@ -1,15 +1,9 @@
 import { useCallback, useEffect, useState, VFC } from "react";
-import BroadcastItem from "../components/BroadcastItem";
+import { BroadcastItem } from "components/BroadcastItem";
+import type { BroadcastInfo } from "types/types";
 
-type Broadcast = {
-  id: string;
-  title: string;
-  status: "before" | "during" | "after";
-  engibeerCount: number;
-  date: string;
-};
 const HomePage: VFC = () => {
-  const [broadcastList, setBroadcastList] = useState<Array<Broadcast>>([]);
+  const [broadcastList, setBroadcastList] = useState<BroadcastInfo[]>([]);
 
   const fetchBroadcast = useCallback(async () => {
     const res = await fetch("http://localhost:3001/broadcasts");

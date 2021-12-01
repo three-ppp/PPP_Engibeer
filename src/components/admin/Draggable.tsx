@@ -6,7 +6,7 @@ type Props = {
   id: string;
 };
 
-const Draggable: VFC<Props> = (props) => {
+export const Draggable: VFC<Props> = (props) => {
   const { children, id } = props;
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id,
@@ -23,5 +23,3 @@ const Draggable: VFC<Props> = (props) => {
     </button>
   );
 };
-
-export default Draggable;

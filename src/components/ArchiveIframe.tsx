@@ -4,7 +4,7 @@ type Props = {
   archiveURL: string;
 };
 
-const ArchiveIframe: VFC<Props> = (props) => {
+export const ArchiveIframe: VFC<Props> = (props) => {
   const { archiveURL } = props;
   return (
     <iframe
@@ -19,4 +19,3 @@ const ArchiveIframe: VFC<Props> = (props) => {
   );
 };
 
-export default ArchiveIframe;

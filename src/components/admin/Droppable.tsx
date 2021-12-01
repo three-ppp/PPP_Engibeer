@@ -6,7 +6,7 @@ type Props = {
   id: string;
 };
 
-const Droppable: VFC<Props> = (props) => {
+export const Droppable: VFC<Props> = (props) => {
   const { children, id } = props;
   const { isOver, setNodeRef } = useDroppable({
     id,
@@ -14,5 +14,3 @@ const Droppable: VFC<Props> = (props) => {
 
   return <div ref={setNodeRef}>{children}</div>;
 };
-
-export default Droppable;
