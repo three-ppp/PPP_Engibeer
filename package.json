@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "@dnd-kit/core": "^4.0.2",
+<<<<<<< HEAD
     "firebase": "^9.1.3",
+=======
+>>>>>>> 4c38c71 (🔥 babel-plugin-inline-react-svgをuninstallしました)
     "json-server": "^0.17.0",
     "next": "^12.0.6",
     "react": "^17.0.2",
