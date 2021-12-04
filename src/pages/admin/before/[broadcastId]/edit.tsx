@@ -27,7 +27,7 @@ const BroadcastEditPage: VFC = () => {
   const pushLivePage = useCallback(() => {
     router.push(`/admin/live/${broadcastId}`);
   }, []);
-
+  
   useEffect(() => {
     // クエリがセットされたことを検知
     if (router.asPath !== router.route) {
