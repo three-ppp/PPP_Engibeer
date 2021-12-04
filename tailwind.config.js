@@ -1,4 +1,5 @@
 module.exports = {
+  mode: "jit",
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -11,6 +12,7 @@ module.exports = {
     backgroundColor: (theme) => ({
       ...theme("colors"),
       orange: "#FFEDD5",
+      yellow: "#FEF3C7",
     }),
     textColor: (theme) => ({
       ...theme("colors"),
