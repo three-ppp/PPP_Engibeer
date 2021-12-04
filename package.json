@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@dnd-kit/core": "^4.0.2",
-    "babel-plugin-inline-react-svg": "^2.0.1",
     "json-server": "^0.17.0",
     "next": "11.1.2",
     "react": "17.0.2",
