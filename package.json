@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@dnd-kit/core": "^4.0.2",
+    "firebase": "^9.6.0",
     "json-server": "^0.17.0",
     "next": "11.1.2",
     "react": "17.0.2",
