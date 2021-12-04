@@ -1,5 +1,5 @@
+import { Avatar } from "components/Avatar";
 import { VFC } from "react";
-import Avatar from "../Avatar";
 
 type Props = {
   title: string;
