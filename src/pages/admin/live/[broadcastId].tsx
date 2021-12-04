@@ -7,12 +7,14 @@ import { useRouter } from "next/dist/client/router";
 import { useCallback, useEffect, useState } from "react";
 import type { BroadcastInfo, Engibeer, Status } from "types/types";
 
+type Broadcast = BroadcastInfo & { id: string };
+
 const AdminLivePage = () => {
   const containers: Status[] = ["before", "during", "after"];
   const [beforeList, setBeforeList] = useState<Engibeer[]>([]);
   const [duringList, setDuringList] = useState<Engibeer[]>([]);
   const [afterList, setAfterList] = useState<Engibeer[]>([]);
-  const [broadcastInfo, setBroadcastInfo] = useState<BroadcastInfo>();
+  const [broadcastInfo, setBroadcastInfo] = useState<Broadcast>();
   const [isLive, setIsLive] = useState(false);
 
   const router = useRouter();
@@ -23,7 +25,7 @@ const AdminLivePage = () => {
         `http://localhost:3001/broadcasts/${broadcastId}`
       );
       const json = await res.json();
-      setBroadcastInfo(json);
+      setBroadcastInfo({ ...json, id: broadcastId });
     },
     []
   );
@@ -39,10 +41,8 @@ const AdminLivePage = () => {
   }, [setIsLive]);
 
   const pushEditPage = useCallback(() => {
-    router.push(`/admin/broadcast/${2}/edit`);
-  }, []);
-
-  console.log("レンダリング！！");
+    router.push(`/admin/before/${broadcastInfo?.id}/edit`);
+  }, [broadcastInfo]);
 
   const fetchEngibeerList = useCallback(async () => {
     const res = await fetch("http://localhost:3001/engibeers");

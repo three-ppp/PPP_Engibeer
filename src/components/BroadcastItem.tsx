@@ -1,4 +1,5 @@
-import {BroadcastStatus} from "components/BroadcastStatus";
+import { BroadcastStatus } from "components/BroadcastStatus";
+import { DYNAMIC_ROUTES_BASE, getDynamicRoute } from "constants/routes";
 import { useRouter } from "next/dist/client/router";
 import { useCallback, VFC } from "react";
 import type { Status } from "types/types";
@@ -18,13 +19,16 @@ export const BroadcastItem: VFC<Props> = (props) => {
     (broadcastId: string, status: Status): void => {
       if (status === "before") {
         // 放送前の場合 エンジビア投稿画面に遷移
-        router.push(`before/${broadcastId}/engibeer/add`);
+        router.push(
+          getDynamicRoute(DYNAMIC_ROUTES_BASE.BEFORE, broadcastId) +
+            "/engibeer/add"
+        );
       } else if (status === "during") {
         // 放送中の場合 放送中のページに遷移
-        router.push(`/live/${broadcastId}`);
+        router.push(getDynamicRoute(DYNAMIC_ROUTES_BASE.LIVE, broadcastId));
       } else {
         // 放送済みの場合　アーカイブのページに遷移
-        router.push(`/archive/${broadcastId}`);
+        router.push(getDynamicRoute(DYNAMIC_ROUTES_BASE.ARCHIVE, broadcastId));
       }
     },
     []

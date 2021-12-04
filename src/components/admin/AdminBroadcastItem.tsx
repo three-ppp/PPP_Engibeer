@@ -1,4 +1,9 @@
 import { BroadcastStatus } from "components/BroadcastStatus";
+import {
+  DYNAMIC_ROUTES_BASE,
+  getDynamicRoute,
+  STATIC_ROUTES,
+} from "constants/routes";
 import { useRouter } from "next/dist/client/router";
 import { useCallback, VFC } from "react";
 import { Status } from "types/types";
@@ -18,10 +23,16 @@ export const AdminBroadcastItem: VFC<Props> = (props) => {
     (broadcastId: string, status: Status): void => {
       if (status === "before" || status === "during") {
         // 放送前の場合 投稿エンジビアの確認＆放送設定ページ画面に遷移
-        router.push(`/admin/live/${broadcastId}`);
+        router.push(
+          STATIC_ROUTES.ADMIN.INDEX +
+            getDynamicRoute(DYNAMIC_ROUTES_BASE.LIVE, broadcastId)
+        );
       } else {
         // 放送済みの場合　アーカイブのページに遷移
-        router.push(`/admin/archive/${broadcastId}`);
+        router.push(
+          STATIC_ROUTES.ADMIN.INDEX +
+            getDynamicRoute(DYNAMIC_ROUTES_BASE.ARCHIVE, broadcastId)
+        );
       }
     },
     []
