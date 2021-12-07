@@ -2,6 +2,8 @@ import { useRouter } from "next/dist/client/router";
 import { ChangeEvent, useCallback, useState, VFC } from "react";
 import Button from "../../../components/Button";
 import PrimaryInput from "../../../components/PrimaryInput";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc} from 'firebase/firestore/lite';
 
 const BroadcastAddPage: VFC = () => {
   const [broadcastTitle, setBroadcastTitle] = useState("");
@@ -13,13 +15,21 @@ const BroadcastAddPage: VFC = () => {
   }, []);
 
   const onChangeDate = (e: ChangeEvent<HTMLInputElement>) => {
-    setBroadcastTitle(e.target.value);
+    setBroadcastDate(e.target.value);
   };
 
-  const addBroadcast = useCallback(() => {
-    // 放送を投稿する処理を書く
-    console.log("add");
-  }, []);
+  const addBroadcast = useCallback(async () => {
+    const firebaseConfig = {};
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    await addDoc(collection(db, "broadcast"), {
+      title: broadcastTitle,
+      status: "放送前",
+      date:broadcastDate,
+    });
+  
+  }, [broadcastTitle, broadcastDate]);
 
   const pushHomePage = useCallback(() => {
     router.push("/admin/home");
