@@ -4,6 +4,8 @@ import ArchiveIframe from "../../../components/ArchiveIframe";
 import BroadcastTitle from "../../../components/BroadcastTitle";
 import Button from "../../../components/Button";
 import PrimaryInput from "../../../components/PrimaryInput";
+import { initializeApp } from "firebase/app";
+import { getFirestore, doc, updateDoc} from 'firebase/firestore/lite';
 
 type BroadcastInfo = {
   id: string;
@@ -34,10 +36,19 @@ const adminArchivePage: VFC = () => {
     setArchiveURL(e.target.value);
   };
 
-  const saveArchiveURL = useCallback(() => {
-    // アーカイブURLを保存する処理を書く
-    console.log("save!!");
-  }, []);
+  const saveArchiveURL = useCallback(async () => {
+    const firebaseConfig = {
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    
+    // 保存されているbroadcastIdを取得する
+    const broadcastId = "";
+    await updateDoc(doc(db, "broadcast", broadcastId), {
+      archiveURL:archiveURL
+    });
+
+  }, [archiveURL]);
 
   useEffect(() => {
     // クエリがセットされたことを検知
