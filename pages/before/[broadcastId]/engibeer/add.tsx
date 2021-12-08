@@ -1,7 +1,9 @@
 import { useRouter } from "next/dist/client/router";
 import { useCallback, useEffect, useState, VFC } from "react";
 import BroadcastTitle from "../../../../components/BroadcastTitle";
-import { Button } from "../../../../components/Button";
+import Button from "../../../../components/Button";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from 'firebase/firestore/lite';
 
 type BroadcastInfo = {
   id: string;
@@ -28,9 +30,21 @@ const EngiberrAddPage: VFC = () => {
     []
   );
 
-  const saveEngibeer = useCallback(() => {
-    // エンジビアを保存する処理を書く
-    console.log(engibeer);
+  const saveEngibeer = useCallback(async() => {
+    const firebaseConfig = {};
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // useContextを使用して、uidを取得する
+    const userID = "";
+    // 保存されているbroadcastIdを取得する
+    const broadcastId = "";
+    
+    await addDoc(collection(db, `broadcast/${broadcastId}/engibeer`), {
+      userID:userID,
+      title:engibeer,
+      status:"フューチャー前",
+    });
   }, [engibeer]);
 
   useEffect(() => {
