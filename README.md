@@ -47,4 +47,13 @@ npm run server
 モックAPIを追加したい場合はdb.jsonに追加で記述してください
 
 
+## firebaseの設定
+.env.development.localファイルを作成して、
+```
+NEXT_PUBLIC_APIKEY='### FIREBASE API KEY ###'
+NEXT_PUBLIC_AUTHDOMAIN='### FIREBASE AUTH DOMAIN ###'
+NEXT_PUBLIC_PROJECTID='### CLOUD FIRESTORE PROJECT ID ###'
+```
+を書き込んでください。
+
 
