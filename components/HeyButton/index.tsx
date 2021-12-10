@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction, useCallback, useState, VFC } from "react";
-import styles from "./index.module.css";
 type Props = {
   incrementHey: Dispatch<SetStateAction<number>>;
   disabled?: boolean;
