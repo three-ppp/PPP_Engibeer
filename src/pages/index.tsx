@@ -36,7 +36,6 @@ const Home: NextPage = () => {
 
   const signOutWithGitHub = useCallback(() => {
     signOut(auth);
-    console.log("logout");
   }, []);
 
   return (
