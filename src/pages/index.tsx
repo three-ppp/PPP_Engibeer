@@ -1,11 +1,43 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { Button } from "components/Button";
+import { signInWithPopup, GithubAuthProvider, signOut } from "firebase/auth";
+import { auth, db } from "../firebase";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { FirebaseError } from "@firebase/util";
 
 const Home: NextPage = () => {
-  const signIn = useCallback(() => {}, []);
-  console.log(process.env.NEXT_PUBLIC_ID);
+  const provider = new GithubAuthProvider();
+
+  const [error, setError] = useState(false);
+
+  const signIn = useCallback(async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      // ユーザーの情報
+      const user = result.user;
+
+      // ユーザー情報をFireStoreに保存
+      await setDoc(doc(db, "users", user.uid), {
+        name: user.displayName, // nullになってしまうが一旦保留
+        iconURL: user.photoURL,
+        isAdmin: false,
+        createdAt: serverTimestamp(),
+      });
+
+      // コンテキストにユーザー情報を保存する
+    } catch (error) {
+      if (error instanceof FirebaseError) {
+        setError(true);
+      }
+    }
+  }, []);
+
+  const signOutWithGitHub = useCallback(() => {
+    signOut(auth);
+    console.log("logout");
+  }, []);
 
   return (
     <>
@@ -17,6 +49,10 @@ const Home: NextPage = () => {
 
       <h1> Index page</h1>
       <Button onClick={signIn} text="サインイン" />
+      <Button onClick={signOutWithGitHub} text="サインアウト" />
+      {error ? (
+        <div className="text-red-700">ログインできませんでした</div>
+      ) : null}
     </>
   );
 };
