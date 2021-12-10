@@ -60,14 +60,20 @@ const EngiberrAddPage: VFC = () => {
 
 
 				<div className="mb-auto">
-					<p className="text-3xl bg-white p-8 rounded-lg w-2/5 text-center mx-auto mt-8">
-						HTMLにはポータルという便利な要素がある
-					</p>
+					<div className="text-3xl bg-white p-8 rounded-lg w-2/5 text-center mx-auto mt-8">
+						<p>HTMLにはポータルという便利な要素がある</p>
+            {/* 仮として */}
+            <div className="bg-blue-500 text-left w-20 h-8 mt-6">
+              <img src="image" />
+            </div>
+					</div>
 				</div>
 
 				<div className="flex flex-row justify-center items-center mt-8">
-					<Button text="編集する" onClick={editEngibeer} />
-					<Button text="削除する" onClick={removeEngibeer} />
+          <div className="mr-8">
+            <Button text="編集する" onClick={editEngibeer} />
+          </div>
+					<Button text="削除する" buttonType="second" onClick={removeEngibeer} />
 				</div>
       
 

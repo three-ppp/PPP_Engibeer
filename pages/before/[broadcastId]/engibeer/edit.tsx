@@ -66,8 +66,10 @@ const EngiberrAddPage: VFC = () => {
       ></textarea>
 
       <div className="flex flex-row justify-center items-center mt-8">
-        <Button text="保存する" onClick={saveEngibeer} />
-        <Button text="キャンセル" onClick={cancelEngibeer} />
+        <div className="mr-8">
+          <Button text="保存する" onClick={saveEngibeer} />
+        </div>
+        <Button text="キャンセル" buttonType="second" onClick={cancelEngibeer} />
       </div>
     </div>
   );
