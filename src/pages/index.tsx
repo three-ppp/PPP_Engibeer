@@ -6,11 +6,13 @@ import { signInWithPopup, GithubAuthProvider, signOut } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { FirebaseError } from "@firebase/util";
+import { AuthContext } from "context/Auth";
 
 const Home: NextPage = () => {
   const provider = new GithubAuthProvider();
 
   const [error, setError] = useState(false);
+  const { currentUser, setCurrentUser } = useUserContext();
 
   const signIn = useCallback(async () => {
     try {
@@ -27,6 +29,7 @@ const Home: NextPage = () => {
       });
 
       // コンテキストにユーザー情報を保存する
+      setCurrentUser(user);
     } catch (error) {
       if (error instanceof FirebaseError) {
         setError(true);
