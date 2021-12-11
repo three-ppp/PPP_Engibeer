@@ -1,0 +1,22 @@
+Firestoreのデータ構造(仮)
+
+users:
+  documentID: userID
+  name: string
+  iconURL: string
+  isAdmin: boolean 
+  createdAt: Date
+
+broadcast:
+  documentID: random
+  title: string (放送タイトル)
+  status: string
+  date: Date (放送日)
+  engibeer:
+    documentID: random
+    userID: string (エンジビア投稿者のID)
+    title: string (エンジビアのタイトル)
+    status: string (フィーチャー前ORフィーチャー中ORフィーチャー済み)
+    heyUser:
+      userID: string (へぇ押した人のID)
+      heyCount: number (へぇ押した数 (上限２０) )
