@@ -5,13 +5,14 @@ import { PrimaryInput } from "components/PrimaryInput";
 import { useRouter } from "next/dist/client/router";
 import { ChangeEvent, useCallback, useEffect, useState, VFC } from "react";
 import type { BroadcastInfo } from "types/types";
-import { initializeApp } from "firebase/app";
-import { getFirestore, doc, updateDoc} from 'firebase/firestore/lite';
+import { doc, updateDoc} from 'firebase/firestore';
+import { db } from "../../../firebase";
 
 
-const adminArchivePage: VFC = () => {
+const adminArchivePage: VFC = () => { 
   const [broadcastInfo, setBroadcastInfo] = useState<BroadcastInfo>();
   const [archiveURL, setArchiveURL] = useState("");
+  const [broadcastId, setbroadcastId] = useState("");
 
   const router = useRouter();
 
@@ -31,24 +32,18 @@ const adminArchivePage: VFC = () => {
   };
 
   const saveArchiveURL = useCallback(async () => {
-    const firebaseConfig = {
-    };
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    
-    // 保存されているbroadcastIdを取得する
-    const broadcastId = "";
     await updateDoc(doc(db, "broadcast", broadcastId), {
       archiveURL:archiveURL
     });
 
-  }, [archiveURL]);
+  }, [archiveURL, broadcastId]);
 
   useEffect(() => {
     // クエリがセットされたことを検知
     if (router.asPath !== router.route) {
       const { broadcastId } = router.query;
       fetchBroadcastInfo(broadcastId);
+      setbroadcastId(String(broadcastId));
     }
   }, [router]);
   return (
