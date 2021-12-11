@@ -2,8 +2,8 @@ import { Button } from "components/Button";
 import { PrimaryInput } from "components/PrimaryInput";
 import { useRouter } from "next/dist/client/router";
 import { ChangeEvent, useCallback, useState, VFC } from "react";
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc} from 'firebase/firestore/lite';
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from "../../../firebase";
 
 const BroadcastAddPage: VFC = () => {
   const [broadcastTitle, setBroadcastTitle] = useState("");
@@ -19,10 +19,6 @@ const BroadcastAddPage: VFC = () => {
   };
 
   const addBroadcast = useCallback(async () => {
-    const firebaseConfig = {};
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-  
     await addDoc(collection(db, "broadcast"), {
       title: broadcastTitle,
       status: "放送前",
