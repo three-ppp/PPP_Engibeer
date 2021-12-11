@@ -30,7 +30,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    function({ addUtilities }) {
+    ({ addUtilities }) => {
       const newUtilities = {
         ".text-shadow": {
           textShadow: "2px 0 0 #FBBF24, 0 2px 0 #FBBF24, -2px 0 0 #FBBF24, 0 -2px 0 #FBBF24"
