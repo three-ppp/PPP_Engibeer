@@ -1,4 +1,4 @@
-const Singin　= () => {
+const Signin　= () => {
   return (
     <div className="grid grid-cols-2 h-screen">
       <div className="self-center text-center">
@@ -12,4 +12,4 @@ const Singin　= () => {
   )
 }
 
-export default Singin
+export default Signin
