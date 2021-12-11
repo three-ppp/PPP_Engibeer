@@ -8,7 +8,6 @@ import type { BroadcastInfo } from "types/types";
 import { doc, updateDoc} from 'firebase/firestore';
 import { db } from "../../../firebase";
 
-
 const adminArchivePage: VFC = () => { 
   const [broadcastInfo, setBroadcastInfo] = useState<BroadcastInfo>();
   const [archiveURL, setArchiveURL] = useState("");

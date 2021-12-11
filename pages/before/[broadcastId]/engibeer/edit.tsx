@@ -1,15 +1,19 @@
 import { useRouter } from "next/dist/client/router";
 import { useCallback, useEffect, useState, VFC } from "react";
-import { BroadcastTitle } from "components/BroadcastTitle";
-import { Button } from "components/Button";
-import type { BroadcastInfo } from "types/types";
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from "../../../../firebase";
+import BroadcastTitle from "../../../../components/BroadcastTitle";
+import Button from "../../../../components/Button";
+
+type BroadcastInfo = {
+  id: string;
+  title: string;
+  status: "before" | "during" | "after";
+  engibeerCount: string;
+  date: string;
+};
 
 const EngiberrAddPage: VFC = () => {
   const [broadcastInfo, setBroadcastInfo] = useState<BroadcastInfo>();
   const [engibeer, setEngibeer] = useState("");
-  const [broadcastId, setbroadcastId] = useState("");
 
   const router = useRouter();
 
@@ -24,23 +28,21 @@ const EngiberrAddPage: VFC = () => {
     []
   );
 
-  const saveEngibeer = useCallback(async() => {
-    // useContextを使用して、uidを取得する
-    const userID = "";
-    
-    await addDoc(collection(db, `broadcast/${broadcastId}/engibeer`), {
-      userID:userID,
-      title:engibeer,
-      status:"フューチャー前",
-    });
-  }, [engibeer, broadcastId]);
+  const saveEngibeer = useCallback(() => {
+    // エンジビアを保存する処理を書く
+    console.log(engibeer);
+  }, [engibeer]);
+
+  const cancelEngibeer = useCallback(() => {
+    // キャンセルする処理を書く
+    console.log(engibeer);
+  }, [engibeer]);
 
   useEffect(() => {
     // クエリがセットされたことを検知
     if (router.asPath !== router.route) {
       const { broadcastId } = router.query;
       fetchLiveInfo(broadcastId);
-      setbroadcastId(String(broadcastId));
     }
   }, [router]);
 
@@ -63,7 +65,12 @@ const EngiberrAddPage: VFC = () => {
         onChange={(e) => setEngibeer(e.target.value)}
       ></textarea>
 
-      <Button text="保存する" onClick={saveEngibeer} />
+      <div className="flex flex-row justify-center items-center mt-8">
+        <div className="mr-8">
+          <Button text="保存する" onClick={saveEngibeer} />
+        </div>
+        <Button text="キャンセル" buttonType="second" onClick={cancelEngibeer} />
+      </div>
     </div>
   );
 };
