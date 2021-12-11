@@ -1,7 +1,7 @@
 import { useRouter } from "next/dist/client/router";
 import { useCallback, useEffect, useState, VFC } from "react";
-import BroadcastTitle from "../../../../components/BroadcastTitle";
-import Button from "../../../../components/Button";
+import { BroadcastTitle } from "components/BroadcastTitle";
+import { Button } from "components/Button";
 
 type BroadcastInfo = {
   id: string;
