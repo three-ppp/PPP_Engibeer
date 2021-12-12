@@ -49,7 +49,6 @@ const Home: NextPage = () => {
       </Head>
 
       <h1> Index page</h1>
-      <p>{currentUser.name}</p>
       <Button onClick={signIn} text="サインイン" />
       <Button onClick={signOutWithGitHub} text="サインアウト" />
       {error ? (
