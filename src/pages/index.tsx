@@ -1,9 +1,11 @@
 import Head from "next/head";
-import { useCallback, useState, VFC } from "react";
-import { signInWithPopup, GithubAuthProvider } from "firebase/auth";
+import { useCallback, useState, useContext, VFC } from "react";
+import { Button } from "components/Button";
+import { signInWithPopup, GithubAuthProvider, signOut } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { FirebaseError } from "@firebase/util";
+import { AuthContext } from "context/Auth";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Loading } from "components/Loading";
@@ -13,6 +15,7 @@ const Home: VFC = () => {
   const router = useRouter();
 
   const [error, setError] = useState(false);
+  const { currentUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
 
   const signIn = useCallback(async () => {
