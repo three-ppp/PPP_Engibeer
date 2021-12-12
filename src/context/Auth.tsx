@@ -26,6 +26,4 @@ const AuthProvider: FC = ({ children }) => {
     )
 }
 
-const useUserContext = () => useContext(AuthContext)
-
 export { AuthProvider, AuthContext }
