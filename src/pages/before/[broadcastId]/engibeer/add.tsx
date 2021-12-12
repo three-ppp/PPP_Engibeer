@@ -3,10 +3,13 @@ import { useCallback, useEffect, useState, VFC } from "react";
 import { BroadcastTitle } from "components/BroadcastTitle";
 import { Button } from "components/Button";
 import type { BroadcastInfo } from "types/types";
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from "../../../../firebase";
 
 const EngiberrAddPage: VFC = () => {
   const [broadcastInfo, setBroadcastInfo] = useState<BroadcastInfo>();
   const [engibeer, setEngibeer] = useState("");
+  const [broadcastId, setbroadcastId] = useState("");
 
   const router = useRouter();
 
@@ -21,16 +24,23 @@ const EngiberrAddPage: VFC = () => {
     []
   );
 
-  const saveEngibeer = useCallback(() => {
-    // エンジビアを保存する処理を書く
-    console.log(engibeer);
-  }, [engibeer]);
+  const saveEngibeer = useCallback(async() => {
+    // useContextを使用して、uidを取得する
+    const userID = "";
+    
+    await addDoc(collection(db, `broadcast/${broadcastId}/engibeer`), {
+      userID:userID,
+      title:engibeer,
+      status:"フューチャー前",
+    });
+  }, [engibeer, broadcastId]);
 
   useEffect(() => {
     // クエリがセットされたことを検知
     if (router.asPath !== router.route) {
       const { broadcastId } = router.query;
       fetchLiveInfo(broadcastId);
+      setbroadcastId(String(broadcastId));
     }
   }, [router]);
 
