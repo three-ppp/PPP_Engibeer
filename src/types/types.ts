@@ -1,3 +1,5 @@
+import { User } from "@firebase/auth";
+
 export type Status = "before" | "during" | "after";
 
 export type Engibeer = {
@@ -16,6 +18,8 @@ export type BroadcastInfo = {
   date: string;
 };
 
-export type AuthUser = {
-  currentUser: User | null | undefined;
-}
+export type CurrentUser = User | null | undefined;
+
+export type AuthContext = {
+  currentUser: CurrentUser;
+};
