@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useContext } from "react";
 import { Button } from "components/Button";
 import { signInWithPopup, GithubAuthProvider, signOut } from "firebase/auth";
 import { auth, db } from "../firebase";
@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   const provider = new GithubAuthProvider();
 
   const [error, setError] = useState(false);
-  const { currentUser, setCurrentUser } = useUserContext();
+  const { currentUser } = useContext(AuthContext);
 
   const signIn = useCallback(async () => {
     try {
@@ -29,7 +29,6 @@ const Home: NextPage = () => {
       });
 
       // コンテキストにユーザー情報を保存する
-      setCurrentUser(user);
     } catch (error) {
       if (error instanceof FirebaseError) {
         setError(true);
@@ -50,6 +49,7 @@ const Home: NextPage = () => {
       </Head>
 
       <h1> Index page</h1>
+      <p>{currentUser.name}</p>
       <Button onClick={signIn} text="サインイン" />
       <Button onClick={signOutWithGitHub} text="サインアウト" />
       {error ? (

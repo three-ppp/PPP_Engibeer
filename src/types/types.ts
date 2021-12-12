@@ -16,9 +16,6 @@ export type BroadcastInfo = {
   date: string;
 };
 
-export type User = {
-  name: string | null, 
-  iconURL: string | null,
-  isAdmin: boolean | null,
-  createdAt: string | null,
+export type AuthUser = {
+  currentUser: User | null | undefined;
 }
